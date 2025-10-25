@@ -85,7 +85,8 @@ def main():
     tested = 0
 
     # Try each candidate; stop at first success
-    for idx, pw in enumerate(pwned, 1):
+    for idx, pwt in enumerate(pwned, 1):
+        usert,pw = pwt.split(',')
         for user in targets:
             tested += 1
             guess = iterated_hash(user, pw)
