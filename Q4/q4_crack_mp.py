@@ -92,7 +92,8 @@ def main():
         #stream tasks per pwned password to keep memory low.
         tasks_iter = []
         checked_pwned = 0
-        for idx, pw in enumerate(pwned, 1):
+        for idx, pwt in enumerate(pwned, 1):
+            usert,pw = pwt.split(',')
             tasks = [(u, pw, login[u]) for u in targets]
             results = pool.map(worker_task, tasks)
             for r in results:
